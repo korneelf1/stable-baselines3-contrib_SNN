@@ -180,6 +180,8 @@ class RecurrentActorCriticPolicy(ActorCriticPolicy):
         # (sequence length, batch size, features dim)
         # (batch size = n_envs for data collection or n_seq when doing gradient update)
         n_seq = lstm_states[0].shape[1]
+        lstm_shape = lstm_states[0].shape
+        print(lstm_shape)
         # Batch to sequence
         # (padded batch size, features_dim) -> (n_seq, max length, features_dim) -> (max length, n_seq, features_dim)
         # note: max length (max sequence length) is always 1 during data collection
